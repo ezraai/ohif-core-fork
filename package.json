@@ -1,6 +1,6 @@
 {
   "name": "@ezraai/ohif-core",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Useful functions and classes for building web-based medical imaging applications",
   "author": "OHIF",
   "license": "MIT",
@@ -85,6 +85,7 @@
     "not op_mini all"
   ],
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ]
 }
