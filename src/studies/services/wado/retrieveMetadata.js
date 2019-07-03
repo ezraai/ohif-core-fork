@@ -1,5 +1,5 @@
-import { api } from 'dicomweb-client';
 import DICOMWeb from '../../../DICOMWeb/';
+import { api } from 'dicomweb-client';
 
 const WADOProxy = {
   convertURL: (url, server) => {
@@ -389,6 +389,7 @@ async function resultDataToStudyMetadata(server, studyInstanceUid, resultData) {
           DICOMWeb.getString(instance['00181065'])
         ),
         sliceThickness: DICOMWeb.getNumber(instance['00180050']),
+        spacingBetweenSlices: DICOMWeb.getString(instance['00180088']),
         lossyImageCompression: DICOMWeb.getString(instance['00282110']),
         derivationDescription: DICOMWeb.getString(instance['00282111']),
         lossyImageCompressionRatio: DICOMWeb.getString(instance['00282112']),
