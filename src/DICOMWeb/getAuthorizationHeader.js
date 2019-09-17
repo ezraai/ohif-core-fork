@@ -14,7 +14,9 @@ export default function getAuthorizationHeader(server) {
   // Check for OHIF.user since this can also be run on the server
   const accessToken = user && user.getAccessToken && user.getAccessToken();
 
-  if (server && server.requestOptions && server.requestOptions.auth) {
+  if (server && server.requestOptions && server.requestOptions.bearerToken) {
+    headers.Authorization = `Bearer ${server.requestOptions.bearerToken}`;
+  } else if (server && server.requestOptions && server.requestOptions.auth) {
     // HTTP Basic Auth (user:password)
     headers.Authorization = `Basic ${btoa(server.requestOptions.auth)}`;
   } else if (accessToken) {
